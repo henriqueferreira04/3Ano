@@ -7,3 +7,6 @@
 [submodule "IA/guiao-progr-fundamental"]
 	path = IA/guiao-progr-fundamental
 	url = https://github.com/detiuaveiro/guiao-de-programacao-funcional-henriqueferreira04.git
+[submodule "IA/guiao-prog-funcional"]
+	path = IA/guiao-prog-funcional
+	url = https://github.com/detiuaveiro/guiao-de-programacao-funcional-henriqueferreira04.git
