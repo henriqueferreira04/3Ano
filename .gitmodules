@@ -1,3 +1,9 @@
 [submodule "IA/aula01"]
 	path = IA/aula01
 	url = https://github.com/detiuaveiro/guiao-de-programacao-funcional-henriqueferreira04.git
+[submodule "IA/guiao-pesquisa"]
+	path = IA/guiao-pesquisa
+	url = https://github.com/detiuaveiro/guiao-sobre-pesquisa-henriqueferreira04.git
+[submodule "IA/guiao-progr-fundamental"]
+	path = IA/guiao-progr-fundamental
+	url = https://github.com/detiuaveiro/guiao-de-programacao-funcional-henriqueferreira04.git
