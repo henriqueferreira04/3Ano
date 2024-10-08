@@ -1,50 +1,85 @@
-pAndre = 0.01;   %probabilidade de erro
-pBruno = 0.05; 
-pCarlos = 0.001;
+%a)
+N = 1e6;
 
-progAndre = 20;     %nº de programas
-progBruno = 30;
-progCarlos = 50;
+pA = 0.01;          %probabilidade de erro num programa
+pB = 0.05;
+pC = 0.001;
 
-erroA = pAndre * progAndre;
-erroB = pBruno * progBruno;
-erroC = pCarlos * progCarlos;
-
-erroTotal = erroA + erroB + erroC;
-
-N = 1e5;
+progA = 20;         %nº de programas
+progB = 30;
+progC = 50;
 
 
-probCarlos = erroC / erroTotal;
+pErro_A = pA * progA;
+pErro_B = pB * progB;
+pErro_C = pC * progC;
 
-probBruno = erroB / erroTotal;
+pErro_Total = pErro_A + pErro_B + pErro_C;
 
-proAndre = erroA / erroTotal;
+prob_Teorica_Carlos = pErro_C / pErro_Total;
+prob_Teorica_Bruno = pErro_B / pErro_Total;
+prob_Teorica_Andre = pErro_A / pErro_Total;
 
 
-%%%%%%%%Probabilidade de Carlos = 0.286
+%%%%%%%%Probabilidade de Carlos = 0.0286
 %%%%%%%%A probabilidade de ser o programa do Bruno com erro = 86%
 
 
-%%%%%EXPERIENTALMENTE%%%%%
+%%%%experiencialmente
 
-tentativasA = rand(progAndre, N) < pAndre;
-tentativasB = rand(progBruno, N) < pBruno;
-tentativasC = rand(progCarlos, N) < pCarlos;
+tentativasA = rand(progA, N) < pA;
+tentativasB = rand(progB, N) < pB;
+tentativasC = rand(progC, N) < pC;
 
-EXP = [tentativasA; tentativasB; tentativasC];
+matriz = [tentativasA ; tentativasB ; tentativasC];
 
-for c = 1:N
+erro_Carlos = 0;
+erro_Bruno = 0;
+erro_Andre = 0;
+casosTotais = 0;
 
-    programas = EXP(:,c);
+for c = 1 : N
 
-    com_erro = programas(programas);
+    prog = randi(100);
 
-    [index, v] = find(programas == 1);
+    if (matriz(prog, c) == 1)
 
-    if lenght(index) > 0
-        x = randperm(index);
-        res = x(1);
-      
+        casosTotais = casosTotais + 1;
+
+        if (prog > 50) 
+    
+            erro_Carlos = erro_Carlos + 1;
+
+        else 
+            
+            if (prog > 20)
+
+                erro_Bruno = erro_Bruno + 1;
+
+            else
+
+                erro_Andre = erro_Andre + 1;
+
+            end
+        end
+
     end
+
 end
+
+probSim_Andre = erro_Andre / casosTotais;
+probSim_Bruno = erro_Bruno / casosTotais;
+probSim_Carlos = erro_Carlos / casosTotais;
+
+
+
+
+
+
+
+
+
+
+
+
+
