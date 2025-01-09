@@ -10,7 +10,7 @@ accepted_modes = {
 modes_with_iv = {'CBC'}
 
 def getPadding(plaintext: bytes):
-    padding_n = abs(len(plaintext) % 16 - 16 )
+    padding_n = 16 - (len(plaintext) % 16)
     text_padded =plaintext + bytes([padding_n]) * padding_n
 
     return text_padded

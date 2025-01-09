@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -Wall -ggdb -pthread
 
-TARGETS = bb-unsafe bb-safe ex2 ex3 ex3_v2 ex4_server ex4_client
+TARGETS = bb-unsafe bb-safe ex2 ex3 ex3_v2 ex4
 
 HEADERS = fifo.h process.h utils.h dbc.h
 
@@ -23,11 +23,10 @@ ex3: ex3.o $(OBJS) $(HEADERS)
 ex3_v2: ex3_v2.o $(OBJS) $(HEADERS)
 	$(CXX) -o $@ ex3_v2.o $(OBJS) $(CXXFLAGS)
 
-ex4_server: ex4_server.o $(OBJS) $(HEADERS)
-	$(CXX) -o $@ ex4_server.o fifo-sem-safe.o $(OBJS) $(CXXFLAGS)
+ex4: ex4.o $(OBJS) $(HEADERS)
+	$(CXX) -o $@ ex4.o fifo-sem-safe.o $(OBJS) $(CXXFLAGS)
 
-ex4_client: ex4_client.o $(OBJS) $(HEADERS)
-	$(CXX) -o $@ ex4_client.o fifo-sem-safe.o $(OBJS) $(CXXFLAGS)
+
 
 clean:
 	rm -f *.o
